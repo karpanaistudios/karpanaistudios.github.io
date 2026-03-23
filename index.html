@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karpanai Studios | Crafting Meaningful Brand Identities</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F5F0E8;
+  --ink: #1A1612;
+  --gold: #C4973A;
+  --gold-light: #E8C97A;
+  --warm-brown: #6B4C2A;
+  --muted: #8A7A68;
+  --soft-bg: #FDFAF5;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', Georgia, sans-serif; background: var(--soft-bg); color: var(--ink); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 5%;
+  background: rgba(253,250,245,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(196,151,58,0.15);
+}
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 200px; width: auto; display: block; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { background: var(--ink) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 2px; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; padding: 7rem 5% 4rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(196,151,58,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-text { padding-right: 4rem; }
+.hero-eyebrow {
+  display: inline-block; font-size: 0.78rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold); font-weight: 500;
+  margin-bottom: 1.2rem; padding-left: 2rem; position: relative;
+}
+.hero-eyebrow::before { content: ''; position: absolute; left: 0; top: 50%; width: 1.4rem; height: 1px; background: var(--gold); }
+.hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.12; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.4rem; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-desc { font-size: 1.05rem; line-height: 1.75; color: var(--muted); max-width: 440px; margin-bottom: 2.4rem; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary { background: var(--ink); color: var(--cream); padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 2px; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; display: inline-block; cursor: pointer; border: none; }
+.btn-primary:hover { background: var(--gold); color: var(--ink); transform: translateY(-2px); }
+.btn-secondary { border: 1.5px solid var(--ink); color: var(--ink); padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 2px; letter-spacing: 0.04em; transition: border-color 0.25s, color 0.25s, transform 0.2s; display: inline-block; }
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+.owl-ring {
+  width: 320px; height: 320px; border-radius: 50%;
+  background: #0a0a0a;
+  border: 2px solid rgba(196,151,58,0.35);
+  display: flex; align-items: center; justify-content: center; position: relative;
+  box-shadow: 0 0 40px rgba(196,151,58,0.1);
+}
+.owl-ring::before { content: ''; position: absolute; inset: -14px; border-radius: 50%; border: 1px dashed rgba(196,151,58,0.3); animation: spin 20s linear infinite; }
+.hero-tag { position: absolute; bottom: 0.5rem; right: -1rem; background: var(--ink); color: var(--cream); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.55rem 1.1rem; font-weight: 500; }
+
+/* ── STORY ── */
+.story { display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh; overflow: hidden; }
+.story-img { background: #2c1f10; min-height: 480px; display: flex; align-items: center; justify-content: center; }
+.story-content { padding: 5rem; background: var(--cream); display: flex; flex-direction: column; justify-content: center; }
+.section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1.2rem; }
+.story-content h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
+.story-content p { font-size: 1rem; line-height: 1.85; color: var(--warm-brown); }
+
+/* ── EXPERTISE ── */
+.expertise { padding: 6rem 5%; background: var(--soft-bg); }
+.expertise-header { text-align: center; margin-bottom: 4rem; }
+.expertise-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 0.8rem; }
+.expertise-header p { color: var(--muted); }
+.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.expertise-card { background: var(--cream); padding: 2.5rem 2rem; border: 1px solid rgba(196,151,58,0.15); transition: transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; }
+.expertise-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.4s; }
+.expertise-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(196,151,58,0.12); }
+.expertise-card:hover::after { width: 100%; }
+.card-icon { width: 50px; height: 50px; background: var(--gold); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.4rem; }
+.expertise-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.18rem; font-weight: 600; margin-bottom: 0.75rem; }
+.expertise-card p { font-size: 0.92rem; line-height: 1.75; color: var(--muted); }
+
+/* ── PROMISE ── */
+.promise { padding: 7rem 5%; background: var(--ink); color: var(--cream); text-align: center; position: relative; overflow: hidden; }
+.promise::before { content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,151,58,0.1), transparent 70%); pointer-events: none; }
+.promise h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.3; max-width: 700px; margin: 0 auto 1.5rem; }
+.promise h2 em { font-style: italic; color: var(--gold-light); }
+.promise .sub { font-size: 1.05rem; line-height: 1.8; color: rgba(245,240,232,0.65); max-width: 560px; margin: 0 auto 2.5rem; }
+.promise-banner { max-width: 800px; margin: 3rem auto 0; background: linear-gradient(135deg, #2a1f0e, #3d2c15); border-radius: 4px; border: 1px solid rgba(196,151,58,0.25); padding: 3.5rem 2rem; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.promise-stat { text-align: center; }
+.promise-stat .num { font-family: 'Playfair Display', Georgia, serif; font-size: 2.8rem; font-weight: 700; color: var(--gold-light); display: block; }
+.promise-stat .lbl { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.5); }
+.pdivider { width: 1px; height: 60px; background: rgba(196,151,58,0.25); }
+
+/* ── INDUSTRIES ── */
+.industries { padding: 5rem 5%; background: var(--cream); text-align: center; }
+.industries h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 700; margin-bottom: 2rem; }
+.industry-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+.itag { background: transparent; border: 1.5px solid rgba(196,151,58,0.35); color: var(--warm-brown); padding: 0.5rem 1.2rem; font-size: 0.88rem; font-weight: 500; border-radius: 2px; letter-spacing: 0.05em; transition: background 0.2s, color 0.2s, border-color 0.2s; cursor: default; display: inline-block; }
+.itag:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+/* ── TESTIMONIAL ── */
+.testimonial { padding: 6rem 5%; background: var(--soft-bg); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+blockquote { position: relative; padding: 2.5rem 2.5rem 2.5rem 3.5rem; border-left: 3px solid var(--gold); background: var(--cream); }
+.qmark { font-family: 'Playfair Display', Georgia, serif; font-size: 6rem; color: var(--gold-light); position: absolute; top: -1.5rem; left: 1rem; line-height: 1; }
+blockquote p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.08rem; line-height: 1.85; }
+blockquote footer { margin-top: 1.2rem; font-size: 0.82rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ── CONTACT ── */
+.contact { padding: 6rem 5%; background: var(--ink); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-info { color: var(--cream); }
+.contact-info h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+.contact-info h2 span { color: var(--gold-light); font-style: italic; }
+.contact-info > p { color: rgba(245,240,232,0.65); font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; }
+.cdetail { display: flex; align-items: center; gap: 0.8rem; color: rgba(245,240,232,0.75); font-size: 0.92rem; margin-bottom: 0.7rem; }
+.cdetail a { color: var(--gold-light); text-decoration: none; }
+
+.contact-form { background: rgba(255,255,255,0.04); padding: 2.5rem; border: 1px solid rgba(196,151,58,0.2); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; margin-bottom: 1rem; }
+.form-group label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.45); margin-bottom: 0.4rem; }
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(196,151,58,0.22);
+  color: var(--cream); padding: 0.8rem 1rem;
+  font-family: 'DM Sans', Georgia, sans-serif; font-size: 0.95rem;
+  outline: none; transition: border-color 0.2s;
+  width: 100%;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(245,240,232,0.25); }
+.btn-submit {
+  background: var(--gold); color: var(--ink);
+  border: none; padding: 0.9rem 2.5rem;
+  font-family: 'DM Sans', Georgia, sans-serif; font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; width: 100%;
+  transition: background 0.25s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+.btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer { background: #0F0C09; padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; color: rgba(245,240,232,0.35); font-size: 0.82rem; flex-wrap: wrap; gap: 1rem; }
+footer a { color: var(--gold); text-decoration: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; }
+  .hero-text { padding-right: 0; }
+  .hero-desc { margin: 0 auto 2rem; }
+  .hero-btns { justify-content: center; }
+  .hero-visual { margin-top: 3rem; }
+  .story { grid-template-columns: 1fr; }
+  .story-img { min-height: 280px; }
+  .story-content { padding: 3rem 2rem; }
+  .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonial { grid-template-columns: 1fr; gap: 2rem; }
+  .contact { grid-template-columns: 1fr; gap: 2.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .pdivider { display: none; }
+}
+@media (max-width: 580px) {
+  .expertise-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><img src="logo-color.png" alt="Karpanai Studios" style="height: 100px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="#story">About</a></li>
+    <li><a href="#expertise">Services</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">Design Studio · Est. 2024</span>
+    <h1>Crafting <em>Meaningful</em><br>Brand Identities</h1>
+    <p class="hero-desc">Empowering businesses through thoughtful design and strategic visual communication.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Get in Touch</a>
+      <a href="https://online.fliphtml5.com/gyaef/nmlx/" target="_blank" class="btn-secondary">Company Profile →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="owl-ring">
+      <img src="logo-white.png" alt="Karpanai Studios" style="width:260px;height:auto;padding:1.2rem;">
+    </div>
+    <div class="hero-tag">UX &amp; Product Design</div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-img">
+    <svg width="100%" height="100%" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg">
+      <rect width="500" height="480" fill="#2c1f10"/>
+      <rect x="60" y="300" width="380" height="12" rx="4" fill="#5C3D18"/>
+      <rect x="80" y="312" width="12" height="100" fill="#4A3218"/>
+      <rect x="408" y="312" width="12" height="100" fill="#4A3218"/>
+      <rect x="150" y="180" width="200" height="125" rx="6" fill="#1A0F05"/>
+      <rect x="158" y="188" width="184" height="109" rx="3" fill="#0D1117"/>
+      <rect x="230" y="305" width="40" height="18" fill="#3D2B10"/>
+      <rect x="210" y="322" width="80" height="6" rx="3" fill="#5C3D18"/>
+      <rect x="170" y="200" width="80" height="8" rx="2" fill="#C4973A" opacity="0.7"/>
+      <rect x="170" y="216" width="120" height="4" rx="2" fill="#E8C97A" opacity="0.3"/>
+      <rect x="170" y="228" width="100" height="4" rx="2" fill="#E8C97A" opacity="0.2"/>
+      <rect x="170" y="240" width="110" height="4" rx="2" fill="#E8C97A" opacity="0.2"/>
+      <rect x="260" y="200" width="70" height="60" rx="4" fill="#C4973A" opacity="0.15"/>
+      <rect x="185" y="326" width="130" height="16" rx="3" fill="#3D2B10"/>
+      <rect x="370" y="272" width="28" height="30" rx="4" fill="#E8C97A"/>
+      <path d="M398 282 Q410 282 410 294 Q410 306 398 306" stroke="#C4973A" stroke-width="3" fill="none"/>
+      <rect x="375" y="268" width="18" height="6" rx="2" fill="#C4973A" opacity="0.5"/>
+      <rect x="110" y="274" width="22" height="26" rx="3" fill="#5C3D18"/>
+      <line x1="118" y1="274" x2="113" y2="255" stroke="#E8C97A" stroke-width="3"/>
+      <line x1="122" y1="274" x2="122" y2="252" stroke="#C4973A" stroke-width="3"/>
+      <line x1="126" y1="274" x2="130" y2="256" stroke="#E8C97A" stroke-width="2.5"/>
+      <circle cx="80" cy="100" r="3" fill="#C4973A" opacity="0.3"/>
+      <circle cx="420" cy="80" r="5" fill="#E8C97A" opacity="0.2"/>
+      <circle cx="440" cy="160" r="3" fill="#C4973A" opacity="0.25"/>
+      <text x="250" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#C4973A" opacity="0.5" letter-spacing="4">KARPANAI STUDIOS</text>
+    </svg>
+  </div>
+  <div class="story-content">
+    <p class="section-label">Who We Are</p>
+    <h2>Our Story</h2>
+    <p>Welcome to Karpanai Studios, where imagination takes flight! Our journey began with a simple vision: to transform ideas into meaningful designs that seamlessly connect people with technology. What started as a creative design initiative has blossomed into a full-fledged UX and product design studio, dedicated to bringing your concepts to life. Join us as we navigate the intersection of creativity and innovation!</p>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="expertise-header">
+    <p class="section-label">What We Do</p>
+    <h2>Our Expertise</h2>
+    <p>Purposeful design across every touchpoint.</p>
+  </div>
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="card-icon">🎨</div>
+      <h3>Brand Identity</h3>
+      <p>We craft distinctive and compelling brand identities that connect with your target audience and help you stand out from the competition.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="card-icon">💻</div>
+      <h3>Digital Experiences</h3>
+      <p>Our team excels in designing immersive and user-centric digital experiences that captivate and engage your audience, driving meaningful interactions.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="card-icon">📢</div>
+      <h3>Visual Communication</h3>
+      <p>We provide strategic visual communication solutions that effectively deliver your brand's message across multiple platforms.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="card-icon">📊</div>
+      <h3>Consulting Services</h3>
+      <p>Our consulting services are designed to elevate customer experiences by harnessing insights and analytics, driving both growth and innovation.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="card-icon">🖥️</div>
+      <h3>UI/UX Design</h3>
+      <p>We design intuitive and user-focused interfaces that enhance usability and create seamless digital experiences. Our UI/UX solutions improve engagement, simplify interactions, and ensure your product delivers real value to users.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="card-icon">🎓</div>
+      <h3>UX &amp; Graphic Design Classes</h3>
+      <p>We offer practical, industry-focused training in UX and graphic design to help you build real-world skills. Our classes cover design fundamentals, tools, and hands-on projects to grow your creative career.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <p class="section-label" style="color:var(--gold-light)">Our Commitment</p>
+  <h2>We partner with businesses to elevate their vision with <em>smart design.</em></h2>
+  <p class="sub">Every project is a new story — and we're here to make it unforgettable.</p>
+  <a href="#contact" class="btn-primary" style="background:var(--gold);color:var(--ink)" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Start Your Story</a>
+  <div class="promise-banner">
+    <div class="promise-stat"><span class="num">50+</span><span class="lbl">Projects Delivered</span></div>
+    <div class="pdivider"></div>
+    <div class="promise-stat"><span class="num">7</span><span class="lbl">Industries Served</span></div>
+    <div class="pdivider"></div>
+    <div class="promise-stat"><span class="num">100%</span><span class="lbl">Client Satisfaction</span></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+  <p class="section-label">Sectors</p>
+  <h2>Industries We Serve</h2>
+  <div class="industry-tags">
+    <span class="itag">Technology</span>
+    <span class="itag">Healthcare</span>
+    <span class="itag">E-Commerce</span>
+    <span class="itag">Education</span>
+    <span class="itag">Finance</span>
+    <span class="itag">Real Estate</span>
+    <span class="itag">Artificial Intelligence</span>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="testimonial-header">
+    <p class="section-label">Client Testimonials</p>
+    <h2>What Our Clients Say</h2>
+  </div>
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="carousel-slide">
+        <blockquote>
+          <div class="qmark">"</div>
+          <p>I had an incredible experience working with Karpanai Studios. Their creativity, attention to detail, and ability to translate my ideas into visually stunning designs truly exceeded my expectations. From start to finish, they were professional, responsive, and delivered high-quality work on time. I highly recommend Karpanai Studios to anyone looking for a talented and reliable graphic designer.</p>
+          <footer>— Eswari Edu Ventures Private Limited</footer>
+        </blockquote>
+      </div>
+
+      <div class="carousel-slide">
+        <blockquote>
+          <div class="qmark">"</div>
+          <p>Our product UX went from confusing to seamless. Thanks to the team for helping us improve the experience and increase retention!</p>
+          <footer>— Narmtech</footer>
+        </blockquote>
+      </div>
+
+      <div class="carousel-slide">
+        <blockquote>
+          <div class="qmark">"</div>
+          <p>Karpanai Studios' strategic insights and consulting services have helped us elevate our customer experience, resulting in tangible improvements in customer satisfaction and loyalty.</p>
+          <footer>— Tie-Up Events</footer>
+        </blockquote>
+      </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="carousel-dots" id="carouselDots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+
+    <!-- Arrows -->
+    <button class="carousel-btn prev" onclick="changeSlide(-1)">&#8249;</button>
+    <button class="carousel-btn next" onclick="changeSlide(1)">&#8250;</button>
+  </div>
+</section>
+
+<style>
+.testimonial-section {
+  padding: 6rem 5%;
+  background: var(--soft-bg);
+  text-align: center;
+}
+.testimonial-header { margin-bottom: 3rem; }
+.testimonial-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700; color: var(--ink);
+}
+.carousel-wrapper {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+  min-width: 100%;
+  padding: 0 3rem;
+}
+.carousel-slide blockquote {
+  position: relative;
+  padding: 2.5rem 2.5rem 2.5rem 3.5rem;
+  border-left: 3px solid var(--gold);
+  background: var(--cream);
+  text-align: left;
+}
+.carousel-slide .qmark {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 6rem; color: var(--gold-light);
+  position: absolute; top: -1.5rem; left: 1rem; line-height: 1;
+}
+.carousel-slide blockquote p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic; font-size: 1.08rem; line-height: 1.85; color: var(--ink);
+}
+.carousel-slide blockquote footer {
+  margin-top: 1.2rem; font-size: 0.82rem;
+  color: var(--gold); letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 600; font-style: normal;
+}
+.carousel-dots {
+  display: flex; justify-content: center; gap: 0.6rem;
+  margin-top: 2rem;
+}
+.dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(196,151,58,0.25);
+  cursor: pointer; transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.dot.active { background: var(--gold); transform: scale(1.3); }
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: var(--ink); color: var(--gold-light);
+  border: none; width: 40px; height: 40px; border-radius: 50%;
+  font-size: 1.4rem; cursor: pointer; line-height: 1;
+  transition: background 0.2s; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+}
+.carousel-btn:hover { background: var(--gold); color: var(--ink); }
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
+@media (max-width: 600px) {
+  .carousel-slide { padding: 0 0.5rem; }
+  .carousel-btn { display: none; }
+}
+</style>
+
+<script>
+(function() {
+  var current = 0;
+  var total = 3;
+  var autoTimer;
+
+  function goToSlide(index) {
+    current = (index + total) % total;
+    document.getElementById('carouselTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
+    var dots = document.querySelectorAll('.dot');
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+  }
+
+  window.goToSlide = goToSlide;
+  window.changeSlide = function(dir) {
+    clearInterval(autoTimer);
+    goToSlide(current + dir);
+    startAuto();
+  };
+
+  function startAuto() {
+    autoTimer = setInterval(function() { goToSlide(current + 1); }, 4000);
+  }
+
+  startAuto();
+})();
+</script>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <p class="section-label" style="color:var(--gold)">Reach Out</p>
+    <h2>Let's <span>Talk</span></h2>
+    <p>Ready to transform your brand?</p> <p> We'd love to hear about your project.</p> <p>Reach out and let's start the conversation.</p>
+    <div class="cdetail">
+  &#9993;&nbsp;
+  <a href="mailto:karpanaistudios@gmail.com">
+    karpanaistudios@gmail.com
+  </a>
+</div>
+    <div class="cdetail">&#128222;&nbsp;&nbsp;+91 9840465309</div>
+  </div>
+  <div class="contact-form">
+    <form action="https://formsubmit.co/0de230e74d1b3ab04bac10a94e7ef62d" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Enquiry from Karpanai Studios Website">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" name="first_name" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" name="last_name" placeholder="Your last name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone *</label>
+          <input type="tel" name="phone" placeholder="+91 00000 00000" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message *</label>
+        <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo-white.png" alt="Karpanai Studios" style="height: 70px;width:auto;opacity:0.8;">
+  <span>&#169; 2026 by Sivaraj Rajendran &middot; Karpanai Studios</span>
+  <div class="cdetail">
+  <a href="mailto:karpanaistudios@gmail.com">
+    karpanaistudios@gmail.com
+  </a>
+
+   <div style="display:flex;gap:0.7rem;align-items:center;">
+    <a href="https://www.instagram.com/karpanai.studios/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(196,151,58,0.4);color:rgba(245,240,232,0.65);text-decoration:none;transition:all 0.25s;" onmouseover="this.style.background='#C4973A';this.style.color='#1A1612';this.style.borderColor='#C4973A';" onmouseout="this.style.background='';this.style.color='rgba(245,240,232,0.65)';this.style.borderColor='rgba(196,151,58,0.4)';">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/karpanai-studios/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(196,151,58,0.4);color:rgba(245,240,232,0.65);text-decoration:none;transition:all 0.25s;" onmouseover="this.style.background='#C4973A';this.style.color='#1A1612';this.style.borderColor='#C4973A';" onmouseout="this.style.background='';this.style.color='rgba(245,240,232,0.65)';this.style.borderColor='rgba(196,151,58,0.4)';">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+</div>
+</footer>
