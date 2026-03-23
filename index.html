@@ -19,7 +19,20 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', Georgia, sans-serif; background: var(--soft-bg); color: var(--ink); overflow-x: hidden; }
+<script>
+function showSuccessPopup() {
+  setTimeout(() => {
+    document.getElementById("successPopup").style.display = "flex";
+  }, 500);
 
+  // reset form after submit
+  document.querySelector("form").reset();
+}
+
+function closePopup() {
+  document.getElementById("successPopup").style.display = "none";
+}
+</script>
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 100;
@@ -188,7 +201,7 @@ footer a { color: var(--gold); text-decoration: none; }
 </style>
 </head>
 <body>
-
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#"><img src="logo-color.png" alt="Karpanai Studios" style="height: 100px;width:auto;display:block;"></a>
@@ -493,7 +506,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <div class="cdetail">&#128222;&nbsp;&nbsp;+91 9840465309</div>
   </div>
  <div class="contact-form">
-  <form action="https://formsubmit.co/karpanaistudios@gmail.com" method="POST">
+  <form action="https://formsubmit.co/karpanaistudios@gmail.com" method="POST" target="hidden_iframe" onsubmit="showSuccessPopup()">
     
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="New Enquiry from Karpanai Studios Website">
@@ -531,7 +544,37 @@ footer a { color: var(--gold); text-decoration: none; }
   </form>
 </div>
 </section>
-
+<div id="successPopup" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    font-family: DM Sans;
+  ">
+    <h2 style="margin-bottom: 1rem;">✅ Message Sent!</h2>
+    <p style="margin-bottom: 1.5rem;">Thank you for reaching out. We'll get back to you soon.</p>
+    <button onclick="closePopup()" style="
+      background: #C4973A;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+    ">Close</button>
+  </div>
+</div>
 <!-- FOOTER -->
 <footer>
   <img src="logo-white.png" alt="Karpanai Studios" style="height: 70px;width:auto;opacity:0.8;">
