@@ -623,10 +623,11 @@ footer .nav-logo img{height:60px;}
     <p class="section-label" style="color:var(--gold)">Reach Out</p>
     <h2>Let's <span>Talk</span></h2>
     <p>Ready to transform your brand?</p> <p>We'd love to hear about your project.</p> <p>Reach out and let's start the conversation.</p>
-    <div class="cdetail">&#9993;&nbsp;<a href="mailto:karpanaistudios@gmail.com">karpanaistudios&#64;gmail.com</a></div>
+    <div class="cdetail">&#9993;&nbsp;<a href="/cdn-cgi/l/email-protection#1d767c6f6d7c737c746e69687974726e5d7a707c7471337e7270">karpanaistudios&#64;gmail.com</a></div>
     <div class="cdetail">&#128222;&nbsp;&nbsp;+91 9840465309</div>
   </div>
   <div class="contact-form">
+    <form id="contactForm">
       <input type="hidden" name="access_key" value="50bf3809-f61c-4a58-9f82-76342f3ea98d">
       <input type="hidden" name="subject" value="New Enquiry from Karpanai Studios Website">
       <input type="hidden" name="from_name" value="Karpanai Studios Website">
@@ -641,7 +642,7 @@ footer .nav-logo img{height:60px;}
         <div class="form-group"><label>Phone *</label><input type="tel" name="phone" placeholder="+91 00000 00000" required></div>
       </div>
       <div class="form-group"><label>Message *</label><textarea name="message" placeholder="Write your message..." required></textarea></div>
-      <button type="submit" class="btn-submit">Submit</button>
+      <button type="submit" class="btn-submit" id="submitBtn">Submit</button>
     </form>
   </div>
 </section>
@@ -675,7 +676,7 @@ footer .nav-logo img{height:60px;}
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Carousel ──────────────────────────────────────────────
 (function () {
   var current = 0, total = 3, autoTimer;
@@ -704,24 +705,49 @@ footer .nav-logo img{height:60px;}
   startAuto();
 })();
 
+// ── Web3Forms Submit Handler ──────────────────────────────
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  var submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  var formData = new FormData(this);
+
+  try {
+    var response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+
+    var data = await response.json();
+
+    if (data.success) {
+      showSuccessPopup();
+      this.reset();
+    } else {
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  } catch (error) {
+    alert('Network error. Please check your connection and try again.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit';
+  }
+});
+
 // ── Success Popup ─────────────────────────────────────────
 function showSuccessPopup() {
+  var popup = document.getElementById('successPopup');
+  var inner = document.getElementById('successPopupInner');
+
+  popup.style.display = 'flex';
+
   setTimeout(function () {
-    var popup = document.getElementById('successPopup');
-    var inner = document.getElementById('successPopupInner');
-
-    popup.style.display = 'flex';
-
-    // Trigger transition after display is applied
-    setTimeout(function () {
-      popup.style.opacity = '1';
-      inner.style.transform = 'translateY(0)';
-    }, 10);
-
-    // Reset the form
-    var form = document.querySelector('.contact-form form');
-    if (form) form.reset();
-  }, 300);
+    popup.style.opacity = '1';
+    inner.style.transform = 'translateY(0)';
+  }, 10);
 }
 
 function closePopup() {
@@ -746,15 +772,3 @@ function closePopup() {
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
 </div>
-
-<div class="whatsapp-container">
-  <span class="whatsapp-tooltip">Chat with us</span>
-
-  <a href="https://wa.me/919840465309" target="_blank" class="whatsapp-float">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-  </a>
-</div>
-</body>
-
-
-</html>
