@@ -3,8 +3,10 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karpanai Studios | Crafting Meaningful Brand Identities</title>
+<title>Karpanai Studios</title>
 <style>
 /* FORCE CENTER ALIGN */
 .carousel-slide blockquote,
@@ -313,6 +315,52 @@ blockquote {
 .carousel-btn.prev{left:0;}
 .carousel-btn.next{right:0;}
 
+/* WORK SAMPLES & SOCIAL — MARQUEE + INLINE PREVIEW */
+.work-social-section{padding:6rem 0;background:var(--cream);overflow:hidden;}
+.work-social-header{text-align:center;margin-bottom:4rem;padding:0 5%;}
+.work-social-header h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:0.8rem;}
+.work-social-header p{color:var(--muted);font-size:1rem;}
+
+/* Portfolio cards — centered horizontal scroll snap */
+.portfolio-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.5rem;padding:0 5%;text-align:center;display:block;}
+.portfolio-scroller-wrap{display:flex;justify-content:center;padding:0.5rem 5% 2rem;}
+.portfolio-scroller{display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;max-width:1200px;width:100%;}
+.portfolio-card{flex:0 0 320px;background:var(--soft-bg);border:1px solid rgba(196,151,58,0.18);border-radius:8px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;position:relative;text-decoration:none;color:inherit;}
+.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(196,151,58,0.22);}
+
+/* Dark thumbnail area — same style as "Other Designs" on all cards */
+.portfolio-card-thumb-area{width:100%;height:190px;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.portfolio-card-thumb-area::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(196,151,58,0.08),transparent 70%);pointer-events:none;}
+.portfolio-card-thumb-title{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--gold-light);text-align:center;padding:0 1.5rem;line-height:1.25;position:relative;z-index:1;}
+
+.portfolio-card-body{padding:1.2rem 1.4rem 1.4rem;}
+.portfolio-card-num{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem;text-decoration:none;}
+.portfolio-card-title{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;margin-bottom:0.4rem;color:var(--ink);text-decoration:none;}
+.portfolio-card-desc{font-size:0.82rem;line-height:1.6;color:var(--muted);margin-bottom:1rem;text-decoration:none;}
+.portfolio-card-cta{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;transition:gap 0.2s;}
+.portfolio-card:hover .portfolio-card-cta{gap:0.7rem;}
+.portfolio-card-badge{position:absolute;top:1rem;right:1rem;background:transparent;color:var(--gold-light);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:1px solid rgba(196,151,58,0.4);}
+@media(max-width:768px){.portfolio-scroller{flex-direction:column;align-items:center;}.portfolio-card{flex:0 0 auto;width:100%;max-width:360px;}}
+
+/* Social marquee */
+.social-marquee-wrapper{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(196,151,58,0.18);}
+.social-marquee-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.4rem;padding:0 5%;text-align:center;}
+.marquee-track-outer{overflow:hidden;position:relative;}
+.marquee-track-outer::before,.marquee-track-outer::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+.marquee-track-outer::before{left:0;background:linear-gradient(to right,var(--cream),transparent);}
+.marquee-track-outer::after{right:0;background:linear-gradient(to left,var(--cream),transparent);}
+.marquee-track{display:flex;gap:1.2rem;width:max-content;animation:marqueeScroll 22s linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-pill{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.4rem;background:var(--soft-bg);border:1.5px solid rgba(196,151,58,0.2);border-radius:50px;text-decoration:none;color:var(--ink);white-space:nowrap;transition:all 0.25s;flex-shrink:0;}
+.marquee-pill:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:scale(1.04);}
+.marquee-pill:hover .mpill-handle{color:var(--gold-light);}
+.mpill-icon{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mpill-icon i{color:#fff;font-size:0.85rem;}
+.mpill-handle{font-weight:600;font-size:0.88rem;color:var(--ink);transition:color 0.25s;}
+.marquee-pill:hover .mpill-handle{color:var(--gold-light);}
+.mpill-tag{font-size:0.72rem;color:var(--muted);background:rgba(196,151,58,0.12);padding:0.15rem 0.5rem;border-radius:10px;}
+
 /* CONTACT */
 .contact{padding:6rem 5%;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
 .contact-info{color:var(--cream);}
@@ -612,6 +660,137 @@ footer .nav-logo img{height:60px;}
 
       <button class="carousel-btn prev" onclick="changeSlide(-1)">&#8249;</button>
       <button class="carousel-btn next" onclick="changeSlide(1)">&#8250;</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- WORK SAMPLES & SOCIAL MEDIA -->
+<section class="work-social-section" id="work-samples">
+
+  <div class="work-social-header">
+    <p class="section-label">Portfolio &amp; Connect</p>
+    <h2>Work Samples &amp; Social Media</h2>
+    <p>Browse our portfolio inline — click any card to preview. Follow us on Instagram.</p>
+  </div>
+
+  <!-- Portfolio horizontal scroll -->
+  <p class="portfolio-label">Work Samples</p>
+  <div class="portfolio-scroller-wrap">
+  <div class="portfolio-scroller">
+
+    <a class="portfolio-card" href="https://sivarajrajendran.crevado.com/others" target="_blank" rel="noopener">
+      <div class="portfolio-card-badge">Portfolio</div>
+      <div class="portfolio-card-thumb-area">
+        <span class="portfolio-card-thumb-title">LinkedIn Posts</span>
+      </div>
+      <div class="portfolio-card-body">
+        <div class="portfolio-card-num">01 &mdash; LinkedIn</div>
+        <div class="portfolio-card-title">LinkedIn Posts</div>
+        <div class="portfolio-card-desc">Images designed and posted on LinkedIn — crafted to engage and communicate.</div>
+        <span class="portfolio-card-cta">Visit Portfolio &rarr;</span>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="https://sivarajrajendran.crevado.com/External" target="_blank" rel="noopener">
+      <div class="portfolio-card-badge">Portfolio</div>
+      <div class="portfolio-card-thumb-area">
+        <span class="portfolio-card-thumb-title">Communications</span>
+      </div>
+      <div class="portfolio-card-body">
+        <div class="portfolio-card-num">02 &mdash; Communications</div>
+        <div class="portfolio-card-title">Communications</div>
+        <div class="portfolio-card-desc">Text-first work — images chosen to amplify the message without extra context.</div>
+        <span class="portfolio-card-cta">Visit Portfolio &rarr;</span>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="https://karpanaistudios.weebly.com/design.html" target="_blank" rel="noopener">
+      <div class="portfolio-card-badge">Design</div>
+      <div class="portfolio-card-thumb-area">
+        <span class="portfolio-card-thumb-title">Other Designs</span>
+      </div>
+      <div class="portfolio-card-body">
+        <div class="portfolio-card-num">03 &mdash; Design</div>
+        <div class="portfolio-card-title">Other Designs</div>
+        <div class="portfolio-card-desc">Color, vectors, and effects used to convey emotion in every piece.</div>
+        <span class="portfolio-card-cta">Visit Portfolio &rarr;</span>
+      </div>
+    </a>
+
+  </div>
+  </div>
+
+  <!-- Social media marquee -->
+  <div class="social-marquee-wrapper">
+    <p class="social-marquee-label"><i class="fab fa-instagram" style="margin-right:0.4rem"></i> Social Media Handles</p>
+    <div class="marquee-track-outer">
+      <div class="marquee-track" id="marqueeTrack">
+        <!-- Set 1 -->
+        <a href="https://www.instagram.com/shriramschooltindivanam/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@shriramschooltindivanam</span>
+          <span class="mpill-tag">School</span>
+        </a>
+        <a href="https://www.instagram.com/cinematic360.in/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@cinematic360.in</span>
+          <span class="mpill-tag">Cinematic</span>
+        </a>
+        <a href="https://www.instagram.com/vinuhasan/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@vinuhasan</span>
+          <span class="mpill-tag">Personal</span>
+        </a>
+        <!-- Duplicate set for seamless loop -->
+        <a href="https://www.instagram.com/shriramschooltindivanam/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@shriramschooltindivanam</span>
+          <span class="mpill-tag">School</span>
+        </a>
+        <a href="https://www.instagram.com/cinematic360.in/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@cinematic360.in</span>
+          <span class="mpill-tag">Cinematic</span>
+        </a>
+        <a href="https://www.instagram.com/vinuhasan/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@vinuhasan</span>
+          <span class="mpill-tag">Personal</span>
+        </a>
+        <!-- Third set to ensure full width coverage -->
+        <a href="https://www.instagram.com/shriramschooltindivanam/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@shriramschooltindivanam</span>
+          <span class="mpill-tag">School</span>
+        </a>
+        <a href="https://www.instagram.com/cinematic360.in/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@cinematic360.in</span>
+          <span class="mpill-tag">Cinematic</span>
+        </a>
+        <a href="https://www.instagram.com/vinuhasan/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@vinuhasan</span>
+          <span class="mpill-tag">Personal</span>
+        </a>
+        <!-- Fourth set -->
+        <a href="https://www.instagram.com/shriramschooltindivanam/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@shriramschooltindivanam</span>
+          <span class="mpill-tag">School</span>
+        </a>
+        <a href="https://www.instagram.com/cinematic360.in/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@cinematic360.in</span>
+          <span class="mpill-tag">Cinematic</span>
+        </a>
+        <a href="https://www.instagram.com/vinuhasan/" target="_blank" rel="noopener" class="marquee-pill">
+          <span class="mpill-icon"><i class="fab fa-instagram"></i></span>
+          <span class="mpill-handle">@vinuhasan</span>
+          <span class="mpill-tag">Personal</span>
+        </a>
+      </div>
     </div>
   </div>
 
